@@ -1,0 +1,3 @@
+/home/behzod/CLionProjects/gbox/cmake-build-debug/CMakeFiles/gbox.dir
+/home/behzod/CLionProjects/gbox/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/behzod/CLionProjects/gbox/cmake-build-debug/CMakeFiles/rebuild_cache.dir
