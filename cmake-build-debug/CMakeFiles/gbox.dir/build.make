@@ -83,17 +83,97 @@ CMakeFiles/gbox.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/gbox.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/behzod/CLionProjects/gbox/main.cpp -o CMakeFiles/gbox.dir/main.cpp.s
 
+CMakeFiles/gbox.dir/UniversityMember.cpp.o: CMakeFiles/gbox.dir/flags.make
+CMakeFiles/gbox.dir/UniversityMember.cpp.o: /home/behzod/CLionProjects/gbox/UniversityMember.cpp
+CMakeFiles/gbox.dir/UniversityMember.cpp.o: CMakeFiles/gbox.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/behzod/CLionProjects/gbox/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/gbox.dir/UniversityMember.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gbox.dir/UniversityMember.cpp.o -MF CMakeFiles/gbox.dir/UniversityMember.cpp.o.d -o CMakeFiles/gbox.dir/UniversityMember.cpp.o -c /home/behzod/CLionProjects/gbox/UniversityMember.cpp
+
+CMakeFiles/gbox.dir/UniversityMember.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/gbox.dir/UniversityMember.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/behzod/CLionProjects/gbox/UniversityMember.cpp > CMakeFiles/gbox.dir/UniversityMember.cpp.i
+
+CMakeFiles/gbox.dir/UniversityMember.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/gbox.dir/UniversityMember.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/behzod/CLionProjects/gbox/UniversityMember.cpp -o CMakeFiles/gbox.dir/UniversityMember.cpp.s
+
+CMakeFiles/gbox.dir/Administration.cpp.o: CMakeFiles/gbox.dir/flags.make
+CMakeFiles/gbox.dir/Administration.cpp.o: /home/behzod/CLionProjects/gbox/Administration.cpp
+CMakeFiles/gbox.dir/Administration.cpp.o: CMakeFiles/gbox.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/behzod/CLionProjects/gbox/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/gbox.dir/Administration.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gbox.dir/Administration.cpp.o -MF CMakeFiles/gbox.dir/Administration.cpp.o.d -o CMakeFiles/gbox.dir/Administration.cpp.o -c /home/behzod/CLionProjects/gbox/Administration.cpp
+
+CMakeFiles/gbox.dir/Administration.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/gbox.dir/Administration.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/behzod/CLionProjects/gbox/Administration.cpp > CMakeFiles/gbox.dir/Administration.cpp.i
+
+CMakeFiles/gbox.dir/Administration.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/gbox.dir/Administration.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/behzod/CLionProjects/gbox/Administration.cpp -o CMakeFiles/gbox.dir/Administration.cpp.s
+
+CMakeFiles/gbox.dir/Faculty.cpp.o: CMakeFiles/gbox.dir/flags.make
+CMakeFiles/gbox.dir/Faculty.cpp.o: /home/behzod/CLionProjects/gbox/Faculty.cpp
+CMakeFiles/gbox.dir/Faculty.cpp.o: CMakeFiles/gbox.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/behzod/CLionProjects/gbox/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/gbox.dir/Faculty.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gbox.dir/Faculty.cpp.o -MF CMakeFiles/gbox.dir/Faculty.cpp.o.d -o CMakeFiles/gbox.dir/Faculty.cpp.o -c /home/behzod/CLionProjects/gbox/Faculty.cpp
+
+CMakeFiles/gbox.dir/Faculty.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/gbox.dir/Faculty.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/behzod/CLionProjects/gbox/Faculty.cpp > CMakeFiles/gbox.dir/Faculty.cpp.i
+
+CMakeFiles/gbox.dir/Faculty.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/gbox.dir/Faculty.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/behzod/CLionProjects/gbox/Faculty.cpp -o CMakeFiles/gbox.dir/Faculty.cpp.s
+
+CMakeFiles/gbox.dir/Student.cpp.o: CMakeFiles/gbox.dir/flags.make
+CMakeFiles/gbox.dir/Student.cpp.o: /home/behzod/CLionProjects/gbox/Student.cpp
+CMakeFiles/gbox.dir/Student.cpp.o: CMakeFiles/gbox.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/behzod/CLionProjects/gbox/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/gbox.dir/Student.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gbox.dir/Student.cpp.o -MF CMakeFiles/gbox.dir/Student.cpp.o.d -o CMakeFiles/gbox.dir/Student.cpp.o -c /home/behzod/CLionProjects/gbox/Student.cpp
+
+CMakeFiles/gbox.dir/Student.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/gbox.dir/Student.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/behzod/CLionProjects/gbox/Student.cpp > CMakeFiles/gbox.dir/Student.cpp.i
+
+CMakeFiles/gbox.dir/Student.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/gbox.dir/Student.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/behzod/CLionProjects/gbox/Student.cpp -o CMakeFiles/gbox.dir/Student.cpp.s
+
+CMakeFiles/gbox.dir/Registration.cpp.o: CMakeFiles/gbox.dir/flags.make
+CMakeFiles/gbox.dir/Registration.cpp.o: /home/behzod/CLionProjects/gbox/Registration.cpp
+CMakeFiles/gbox.dir/Registration.cpp.o: CMakeFiles/gbox.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/behzod/CLionProjects/gbox/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/gbox.dir/Registration.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gbox.dir/Registration.cpp.o -MF CMakeFiles/gbox.dir/Registration.cpp.o.d -o CMakeFiles/gbox.dir/Registration.cpp.o -c /home/behzod/CLionProjects/gbox/Registration.cpp
+
+CMakeFiles/gbox.dir/Registration.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/gbox.dir/Registration.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/behzod/CLionProjects/gbox/Registration.cpp > CMakeFiles/gbox.dir/Registration.cpp.i
+
+CMakeFiles/gbox.dir/Registration.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/gbox.dir/Registration.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/behzod/CLionProjects/gbox/Registration.cpp -o CMakeFiles/gbox.dir/Registration.cpp.s
+
 # Object files for target gbox
 gbox_OBJECTS = \
-"CMakeFiles/gbox.dir/main.cpp.o"
+"CMakeFiles/gbox.dir/main.cpp.o" \
+"CMakeFiles/gbox.dir/UniversityMember.cpp.o" \
+"CMakeFiles/gbox.dir/Administration.cpp.o" \
+"CMakeFiles/gbox.dir/Faculty.cpp.o" \
+"CMakeFiles/gbox.dir/Student.cpp.o" \
+"CMakeFiles/gbox.dir/Registration.cpp.o"
 
 # External object files for target gbox
 gbox_EXTERNAL_OBJECTS =
 
 gbox: CMakeFiles/gbox.dir/main.cpp.o
+gbox: CMakeFiles/gbox.dir/UniversityMember.cpp.o
+gbox: CMakeFiles/gbox.dir/Administration.cpp.o
+gbox: CMakeFiles/gbox.dir/Faculty.cpp.o
+gbox: CMakeFiles/gbox.dir/Student.cpp.o
+gbox: CMakeFiles/gbox.dir/Registration.cpp.o
 gbox: CMakeFiles/gbox.dir/build.make
 gbox: CMakeFiles/gbox.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/behzod/CLionProjects/gbox/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable gbox"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/behzod/CLionProjects/gbox/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable gbox"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gbox.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

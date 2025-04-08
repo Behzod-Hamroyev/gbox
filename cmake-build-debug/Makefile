@@ -129,6 +129,126 @@ gbox/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gbox.dir/build.make CMakeFiles/gbox.dir/build
 .PHONY : gbox/fast
 
+Administration.o: Administration.cpp.o
+.PHONY : Administration.o
+
+# target to build an object file
+Administration.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gbox.dir/build.make CMakeFiles/gbox.dir/Administration.cpp.o
+.PHONY : Administration.cpp.o
+
+Administration.i: Administration.cpp.i
+.PHONY : Administration.i
+
+# target to preprocess a source file
+Administration.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gbox.dir/build.make CMakeFiles/gbox.dir/Administration.cpp.i
+.PHONY : Administration.cpp.i
+
+Administration.s: Administration.cpp.s
+.PHONY : Administration.s
+
+# target to generate assembly for a file
+Administration.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gbox.dir/build.make CMakeFiles/gbox.dir/Administration.cpp.s
+.PHONY : Administration.cpp.s
+
+Faculty.o: Faculty.cpp.o
+.PHONY : Faculty.o
+
+# target to build an object file
+Faculty.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gbox.dir/build.make CMakeFiles/gbox.dir/Faculty.cpp.o
+.PHONY : Faculty.cpp.o
+
+Faculty.i: Faculty.cpp.i
+.PHONY : Faculty.i
+
+# target to preprocess a source file
+Faculty.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gbox.dir/build.make CMakeFiles/gbox.dir/Faculty.cpp.i
+.PHONY : Faculty.cpp.i
+
+Faculty.s: Faculty.cpp.s
+.PHONY : Faculty.s
+
+# target to generate assembly for a file
+Faculty.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gbox.dir/build.make CMakeFiles/gbox.dir/Faculty.cpp.s
+.PHONY : Faculty.cpp.s
+
+Registration.o: Registration.cpp.o
+.PHONY : Registration.o
+
+# target to build an object file
+Registration.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gbox.dir/build.make CMakeFiles/gbox.dir/Registration.cpp.o
+.PHONY : Registration.cpp.o
+
+Registration.i: Registration.cpp.i
+.PHONY : Registration.i
+
+# target to preprocess a source file
+Registration.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gbox.dir/build.make CMakeFiles/gbox.dir/Registration.cpp.i
+.PHONY : Registration.cpp.i
+
+Registration.s: Registration.cpp.s
+.PHONY : Registration.s
+
+# target to generate assembly for a file
+Registration.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gbox.dir/build.make CMakeFiles/gbox.dir/Registration.cpp.s
+.PHONY : Registration.cpp.s
+
+Student.o: Student.cpp.o
+.PHONY : Student.o
+
+# target to build an object file
+Student.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gbox.dir/build.make CMakeFiles/gbox.dir/Student.cpp.o
+.PHONY : Student.cpp.o
+
+Student.i: Student.cpp.i
+.PHONY : Student.i
+
+# target to preprocess a source file
+Student.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gbox.dir/build.make CMakeFiles/gbox.dir/Student.cpp.i
+.PHONY : Student.cpp.i
+
+Student.s: Student.cpp.s
+.PHONY : Student.s
+
+# target to generate assembly for a file
+Student.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gbox.dir/build.make CMakeFiles/gbox.dir/Student.cpp.s
+.PHONY : Student.cpp.s
+
+UniversityMember.o: UniversityMember.cpp.o
+.PHONY : UniversityMember.o
+
+# target to build an object file
+UniversityMember.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gbox.dir/build.make CMakeFiles/gbox.dir/UniversityMember.cpp.o
+.PHONY : UniversityMember.cpp.o
+
+UniversityMember.i: UniversityMember.cpp.i
+.PHONY : UniversityMember.i
+
+# target to preprocess a source file
+UniversityMember.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gbox.dir/build.make CMakeFiles/gbox.dir/UniversityMember.cpp.i
+.PHONY : UniversityMember.cpp.i
+
+UniversityMember.s: UniversityMember.cpp.s
+.PHONY : UniversityMember.s
+
+# target to generate assembly for a file
+UniversityMember.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gbox.dir/build.make CMakeFiles/gbox.dir/UniversityMember.cpp.s
+.PHONY : UniversityMember.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -162,6 +282,21 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... gbox"
+	@echo "... Administration.o"
+	@echo "... Administration.i"
+	@echo "... Administration.s"
+	@echo "... Faculty.o"
+	@echo "... Faculty.i"
+	@echo "... Faculty.s"
+	@echo "... Registration.o"
+	@echo "... Registration.i"
+	@echo "... Registration.s"
+	@echo "... Student.o"
+	@echo "... Student.i"
+	@echo "... Student.s"
+	@echo "... UniversityMember.o"
+	@echo "... UniversityMember.i"
+	@echo "... UniversityMember.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

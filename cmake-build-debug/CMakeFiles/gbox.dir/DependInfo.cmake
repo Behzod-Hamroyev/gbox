@@ -8,6 +8,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/behzod/CLionProjects/gbox/Administration.cpp" "CMakeFiles/gbox.dir/Administration.cpp.o" "gcc" "CMakeFiles/gbox.dir/Administration.cpp.o.d"
+  "/home/behzod/CLionProjects/gbox/Faculty.cpp" "CMakeFiles/gbox.dir/Faculty.cpp.o" "gcc" "CMakeFiles/gbox.dir/Faculty.cpp.o.d"
+  "/home/behzod/CLionProjects/gbox/Registration.cpp" "CMakeFiles/gbox.dir/Registration.cpp.o" "gcc" "CMakeFiles/gbox.dir/Registration.cpp.o.d"
+  "/home/behzod/CLionProjects/gbox/Student.cpp" "CMakeFiles/gbox.dir/Student.cpp.o" "gcc" "CMakeFiles/gbox.dir/Student.cpp.o.d"
+  "/home/behzod/CLionProjects/gbox/UniversityMember.cpp" "CMakeFiles/gbox.dir/UniversityMember.cpp.o" "gcc" "CMakeFiles/gbox.dir/UniversityMember.cpp.o.d"
   "/home/behzod/CLionProjects/gbox/main.cpp" "CMakeFiles/gbox.dir/main.cpp.o" "gcc" "CMakeFiles/gbox.dir/main.cpp.o.d"
   )
 

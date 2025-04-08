@@ -3,4 +3,11 @@ project(gbox)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(gbox main.cpp)
+add_executable(gbox
+        main.cpp
+        UniversityMember.cpp
+        Administration.cpp
+        Faculty.cpp
+        Student.cpp
+        Registration.cpp
+)
