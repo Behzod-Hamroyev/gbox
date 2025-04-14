@@ -153,6 +153,30 @@ Administration.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gbox.dir/build.make CMakeFiles/gbox.dir/Administration.cpp.s
 .PHONY : Administration.cpp.s
 
+Database.o: Database.cpp.o
+.PHONY : Database.o
+
+# target to build an object file
+Database.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gbox.dir/build.make CMakeFiles/gbox.dir/Database.cpp.o
+.PHONY : Database.cpp.o
+
+Database.i: Database.cpp.i
+.PHONY : Database.i
+
+# target to preprocess a source file
+Database.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gbox.dir/build.make CMakeFiles/gbox.dir/Database.cpp.i
+.PHONY : Database.cpp.i
+
+Database.s: Database.cpp.s
+.PHONY : Database.s
+
+# target to generate assembly for a file
+Database.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gbox.dir/build.make CMakeFiles/gbox.dir/Database.cpp.s
+.PHONY : Database.cpp.s
+
 Faculty.o: Faculty.cpp.o
 .PHONY : Faculty.o
 
@@ -176,6 +200,30 @@ Faculty.s: Faculty.cpp.s
 Faculty.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gbox.dir/build.make CMakeFiles/gbox.dir/Faculty.cpp.s
 .PHONY : Faculty.cpp.s
+
+Manager.o: Manager.cpp.o
+.PHONY : Manager.o
+
+# target to build an object file
+Manager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gbox.dir/build.make CMakeFiles/gbox.dir/Manager.cpp.o
+.PHONY : Manager.cpp.o
+
+Manager.i: Manager.cpp.i
+.PHONY : Manager.i
+
+# target to preprocess a source file
+Manager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gbox.dir/build.make CMakeFiles/gbox.dir/Manager.cpp.i
+.PHONY : Manager.cpp.i
+
+Manager.s: Manager.cpp.s
+.PHONY : Manager.s
+
+# target to generate assembly for a file
+Manager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gbox.dir/build.make CMakeFiles/gbox.dir/Manager.cpp.s
+.PHONY : Manager.cpp.s
 
 Registration.o: Registration.cpp.o
 .PHONY : Registration.o
@@ -285,9 +333,15 @@ help:
 	@echo "... Administration.o"
 	@echo "... Administration.i"
 	@echo "... Administration.s"
+	@echo "... Database.o"
+	@echo "... Database.i"
+	@echo "... Database.s"
 	@echo "... Faculty.o"
 	@echo "... Faculty.i"
 	@echo "... Faculty.s"
+	@echo "... Manager.o"
+	@echo "... Manager.i"
+	@echo "... Manager.s"
 	@echo "... Registration.o"
 	@echo "... Registration.i"
 	@echo "... Registration.s"

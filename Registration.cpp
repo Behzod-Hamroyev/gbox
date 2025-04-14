@@ -1,13 +1,11 @@
 #include "Registration.h"
-
-#include "Registration.h"
 #include "Student.h"
 #include "Faculty.h"
 #include "Administration.h"
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
 #include <algorithm>
+#include <random>
+#include <fstream>
 
 using namespace std;
 
@@ -16,7 +14,11 @@ string generateUniqueID(const string& prefix, const vector<unique_ptr<University
     bool unique = false;
 
     while (!unique) {
-        int number = rand() % 9000 + 1000; // 4-digit random number
+        random_device rd;
+        mt19937 gen(rd());
+        uniform_int_distribution<> distrib(1000, 9999);
+        int number = distrib(gen);
+
         id = prefix + to_string(number);
 
         unique = all_of(users.begin(), users.end(), [&](const unique_ptr<UniversityMember>& user) {
@@ -27,28 +29,56 @@ string generateUniqueID(const string& prefix, const vector<unique_ptr<University
 }
 
 void registerUser(vector<unique_ptr<UniversityMember>>& users) {
-    string role;
-    cout << "Enter role (student/faculty/administration): ";
-    cin >> role;
+    int roleChoice;
+    cout << "\n--- Register New User ---" << endl;
+    cout << "1. Student" << endl;
+    cout << "2. Faculty" << endl;
+    cout << "3. Administration" << endl;
+    cout << "0. Go Back" << endl;
+    cout << "Select role to register: ";
+    cin >> roleChoice;
     cin.ignore();
 
+    if (roleChoice == 0) return;
+
     string name;
-    cout << "Enter name: ";
+    cout << "Enter name (e.g., Elon Musk): ";
     getline(cin, name);
 
-    if (role == "student") {
-        string id = generateUniqueID("ST", users);
-        users.push_back(make_unique<Student>(name, id));
-        cout << "Student registered with ID: " << id << endl;
-    } else if (role == "faculty") {
-        string id = generateUniqueID("FA", users);
-        users.push_back(make_unique<Faculty>(name, id));
-        cout << "Faculty registered with ID: " << id << endl;
-    } else if (role == "administration") {
-        string id = generateUniqueID("AD", users);
-        users.push_back(make_unique<Administration>(name, id));
-        cout << "Administration registered with ID: " << id << endl;
+    string id;
+
+    switch (roleChoice) {
+        case 1:
+            id = generateUniqueID("ST", users);
+            users.push_back(make_unique<Student>(name, id));
+            cout << "Student registered with ID: " << id << endl;
+            break;
+        case 2:
+            id = generateUniqueID("FA", users);
+            users.push_back(make_unique<Faculty>(name, id));
+            cout << "Faculty registered with ID: " << id << endl;
+            break;
+        case 3:
+            id = generateUniqueID("AD", users);
+            users.push_back(make_unique<Administration>(name, id));
+            cout << "Administration registered with ID: " << id << endl;
+            break;
+        default:
+            cout << "Invalid option. Returning to menu." << endl;
+    }
+    const auto& user = users.back();
+    ofstream out("../users.db", ios::app);
+    if (out) {
+        string role;
+        if (dynamic_cast<Student*>(user.get())) role = "Student";
+        else if (dynamic_cast<Faculty*>(user.get())) role = "Faculty";
+        else if (dynamic_cast<Administration*>(user.get())) role = "Administration";
+
+        out << "#ROLE: " << role << "\n";
+        out << user->getName() << "\n";
+        out << user->getID() << "\n";
+        out << "0\n";
     } else {
-        cout << "Invalid role entered." << endl;
+        cerr << "Error appending user to users.db" << endl;
     }
 }

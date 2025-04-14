@@ -81,12 +81,12 @@ clean: CMakeFiles/gbox.dir/clean
 CMakeFiles/gbox.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gbox.dir/build.make CMakeFiles/gbox.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gbox.dir/build.make CMakeFiles/gbox.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/behzod/CLionProjects/gbox/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target gbox"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/behzod/CLionProjects/gbox/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target gbox"
 .PHONY : CMakeFiles/gbox.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/gbox.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/behzod/CLionProjects/gbox/cmake-build-debug/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/behzod/CLionProjects/gbox/cmake-build-debug/CMakeFiles 9
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/gbox.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/behzod/CLionProjects/gbox/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/gbox.dir/rule

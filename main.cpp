@@ -2,125 +2,206 @@
 #include <vector>
 #include <memory>
 #include <string>
-#include <cstdlib>
-#include <ctime>
-#include <thread>
-#include <cstring>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <unistd.h>
+#include <limits>
 
-#include "Student.h"
-#include "Faculty.h"
-#include "Administration.h"
+#include "UniversityMember.h"
 #include "Registration.h"
+#include "Manager.h"
+#include "Database.h"
 
 using namespace std;
 
-void startServer() {
-    int server_fd, new_socket;
-    struct sockaddr_in address;
-    char buffer[1024] = {0};
-
-    server_fd = socket(AF_INET, SOCK_STREAM, 0);
-    if (server_fd == -1) {
-        cerr << "Socket creation failed." << endl;
-        return;
-    }
-
-    address.sin_family = AF_INET;
-    address.sin_addr.s_addr = INADDR_ANY;
-    address.sin_port = htons(8080);
-
-    if (bind(server_fd, (struct sockaddr*)&address, sizeof(address)) < 0) {
-        cerr << "Bind failed." << endl;
-        return;
-    }
-
-    if (listen(server_fd, 3) < 0) {
-        cerr << "Listen failed." << endl;
-        return;
-    }
-
-    cout << "Server listening on port 8080..." << endl;
-
-    socklen_t addrlen = sizeof(address);
-    new_socket = accept(server_fd, (struct sockaddr*)&address, &addrlen);
-    if (new_socket < 0) {
-        cerr << "Accept failed." << endl;
-        return;
-    }
-
+void clearInputBuffer() {
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+}
+;
+int getMenuChoice(int min, int max) {
+    int choice;
     while (true) {
-        memset(buffer, 0, sizeof(buffer));
-        read(new_socket, buffer, sizeof(buffer));
-        cout << "Client: " << buffer << endl;
-
-        string response;
-        cout << "You: ";
-        getline(cin, response);
-        send(new_socket, response.c_str(), response.size(), 0);
+        cout << "Enter your choice (" << min << "-" << max << "): ";
+        cin >> choice;
+        if (cin.fail() || choice < min || choice > max) {
+            cin.clear();
+            clearInputBuffer();
+            cout << "Invalid input. Try again.\n";
+        } else {
+            clearInputBuffer();
+            return choice;
+        }
     }
-
-    close(new_socket);
-    close(server_fd);
 }
 
-void startClient() {
-    int sock = 0;
-    struct sockaddr_in serv_addr;
-    char buffer[1024] = {0};
-
-    sock = socket(AF_INET, SOCK_STREAM, 0);
-    if (sock < 0) {
-        cerr << "Socket creation error" << endl;
-        return;
+UniversityMember* findUser(const vector<unique_ptr<UniversityMember>>& users, const string& name, const string& id) {
+    for (const auto& user : users) {
+        if (user->getName() == name && user->getID() == id) {
+            return user.get();
+        }
     }
+    return nullptr;
+}
 
-    serv_addr.sin_family = AF_INET;
-    serv_addr.sin_port = htons(8080);
-    serv_addr.sin_addr.s_addr = INADDR_ANY;
-
-    if (connect(sock, (struct sockaddr*)&serv_addr, sizeof(serv_addr)) < 0) {
-        cerr << "Connection failed" << endl;
-        return;
+UniversityMember* findUserByID(const vector<unique_ptr<UniversityMember>>& users, const string& id) {
+    for (const auto& user : users) {
+        if (user->getID() == id) return user.get();
     }
+    return nullptr;
+}
 
-    while (true) {
-        string message;
-        cout << "You: ";
-        getline(cin, message);
-        send(sock, message.c_str(), message.size(), 0);
-
-        memset(buffer, 0, sizeof(buffer));
-        read(sock, buffer, sizeof(buffer));
-        cout << "Server: " << buffer << endl;
+void settingsMenu(UniversityMember* user) {
+    bool inSettings = true;
+    while (inSettings) {
+        cout << "\n--- Settings Menu ---\n";
+        cout << "1. Change Name\n2. Display User ID\n0. Go Back\n";
+        int choice = getMenuChoice(0, 2);
+        switch (choice) {
+            case 1: {
+                cout << "Enter new name: ";
+                string newName;
+                getline(cin, newName);
+                user->setName(newName);
+                cout << "Name changed successfully.\n";
+                break;
+            }
+            case 2:
+                cout << "User ID: " << user->getID() << "\n";
+                break;
+            case 0:
+                inSettings = false;
+                break;
+        }
     }
+}
 
-    close(sock);
+void userMenu(UniversityMember* user, vector<unique_ptr<UniversityMember>>& users) {
+    bool active = true;
+    while (active) {
+        cout << "\n--- User Menu ---\n";
+        cout << "1. Send Message\n2. View Inbox\n3. Settings\n0. Go Back\n";
+        int choice = getMenuChoice(0, 3);
+        switch (choice) {
+            case 1: {
+                cout << "Enter recipient ID: ";
+                string recipientID;
+                getline(cin, recipientID);
+                UniversityMember* recipient = findUserByID(users, recipientID);
+                if (!recipient) {
+                    cout << "User not found.\n";
+                    break;
+                }
+                cout << "Send anonymously? (1 = Yes, 0 = No): ";
+                int anonChoice = getMenuChoice(0, 1);
+                cout << "Enter message: ";
+                string message;
+                getline(cin, message);
+                if (anonChoice == 1) {
+                    recipient->sendMessage(*recipient, "AnonUser: " + message);
+                } else {
+                    message = user->name + ": " + message;
+                    user->sendMessage(*recipient, message);
+                }
+                cout << "Message sent.\n";
+                break;
+            }
+            case 2:
+                cout << user->getInbox();
+                break;
+            case 3:
+                settingsMenu(user);
+                break;
+            case 0:
+                active = false;
+                break;
+        }
+    }
+}
+
+void signIn(vector<unique_ptr<UniversityMember>>& users, Manager& manager) {
+    bool signInActive = true;
+    while (signInActive) {
+        cout << "\n--- Sign In ---\n";
+        cout << "1. Student\n2. Faculty\n3. Administration\n4. Manager\n0. Go Back\n";
+        int role = getMenuChoice(0, 4);
+
+        if (role == 0) break;
+
+        cout << "Enter your name (e.g., Elon Musk): ";
+        string name;
+        getline(cin, name);
+
+        cout << "Enter your ID (e.g., AB1234): ";
+        string id;
+        getline(cin, id);
+
+        UniversityMember* user = findUser(users, name, id);
+        if (!user) {
+            cout << "Invalid credentials. Try again.\n";
+            continue;
+        }
+
+        if (role == 4) {
+            bool managerActive = true;
+            while (managerActive) {
+                cout << "\n--- Manager Menu ---\n";
+                cout << "1. View All Users\n2. View Inbox\n3. View User Info\n4. Remove User\n0. Go Back\n";
+                int mChoice = getMenuChoice(0, 4);
+                string targetID;
+                switch (mChoice) {
+                    case 1:
+                        manager.viewAllUsers(users);
+                        break;
+                    case 2:
+                        cout << "Enter ID: ";
+                        getline(cin, targetID);
+                        manager.viewInbox(users, targetID);
+                        break;
+                    case 3:
+                        cout << "Enter ID: ";
+                        getline(cin, targetID);
+                        manager.viewUserInfo(users, targetID);
+                        break;
+                    case 4:
+                        cout << "Enter ID: ";
+                        getline(cin, targetID);
+                        manager.removeUser(users, targetID);
+                        break;
+                    case 0:
+                        managerActive = false;
+                        break;
+                }
+            }
+        } else {
+            userMenu(user, users);
+        }
+    }
 }
 
 int main() {
-    srand(time(0));
     vector<unique_ptr<UniversityMember>> users;
+    Manager manager;
+    bool running = true;
 
-    while (true) {
-        string option;
-        cout << "\nChoose action: register / server / client / exit: ";
-        cin >> option;
+    loadUsers(users);
 
-        if (option == "register") {
-            registerUser(users);
-        } else if (option == "server") {
-            startServer();
-        } else if (option == "client") {
-            startClient();
-        } else if (option == "exit") {
-            break;
-        } else {
-            cout << "Invalid option." << endl;
+    while (running) {
+        cout << "\n=== University Communication System ===\n";
+        cout << "1. Sign In\n2. Sign Up\n0. Exit\n";
+        int choice = getMenuChoice(0, 2);
+
+        switch (choice) {
+            case 1:
+                signIn(users, manager);
+                break;
+            case 2:
+                registerUser(users);
+                break;
+            case 0:
+                running = false;
+                cout << "Exiting...\n";
+                break;
         }
     }
+
+    saveUsers(users);
 
     return 0;
 }

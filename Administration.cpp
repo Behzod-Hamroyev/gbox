@@ -1,7 +1,7 @@
 #include "Administration.h"
 
-Administration::Administration(string name, int age, int admin_id)
-    : UniversityMember(name, age), admin_id(admin_id) {}
+Administration::Administration(const std::string& name, const std::string& id) : UniversityMember(name, id) {}
 
-int Administration::getAdminID() const { return admin_id; }
-void Administration::setAdminID(int newID) { admin_id = newID; }
+string Administration::getID() const {
+    return id;
+}

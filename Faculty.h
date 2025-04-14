@@ -4,14 +4,9 @@
 #include "UniversityMember.h"
 
 class Faculty : public UniversityMember {
-private:
-    int faculty_id;
-
 public:
-    Faculty(string name, int age, int faculty_id);
-
-    int getFacultyID() const;
-    void setFacultyID(int newID);
+    Faculty(const std::string& name, const std::string& id);
+    std::string getID() const override;
 };
 
 #endif // FACULTY_H

@@ -1,20 +1,43 @@
 #include "UniversityMember.h"
+#include <iostream>
+#include <sstream>
+#include <ctime>
 
-UniversityMember::UniversityMember(string name, int age) : name(name), age(age) {}
+UniversityMember::UniversityMember(const string& name, const string& id) : name(name), id(id) {}
 
 string UniversityMember::getName() const { return name; }
 void UniversityMember::setName(const string& newName) { name = newName; }
 
-int UniversityMember::getAge() const { return age; }
-void UniversityMember::setAge(int newAge) { age = newAge; }
+void UniversityMember::sendMessage(UniversityMember& recipient, const string& content, bool anonymous) {
+    time_t now = time(0);
+    tm* ltm = localtime(&now);
+    char buffer[20];
+    strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", ltm);
 
-void UniversityMember::sendMessage(UniversityMember& recipient, const string& message) {
-    recipient.inbox.push_back(name + ": " + message);
+    Message msg = {
+        .sender = anonymous ? "Anonymous" : name,
+        .timestamp = buffer,
+        .content = content
+    };
+
+    recipient.receiveMessage(msg);
 }
 
-void UniversityMember::getMessages() const {
-    cout << "Inbox of " << name << ":\n";
-    for (const string& msg : inbox) {
-        cout << msg << endl;
+void UniversityMember::receiveMessage(const Message& message) {
+    inbox.push_back(message);
+}
+
+string UniversityMember::getInbox() const {
+    ostringstream oss;
+    for (const Message& msg : inbox) {
+        oss << "From: " << msg.sender << "\n";
+        oss << "At: " << msg.timestamp << "\n";
+        oss << "Message: " << msg.content << "\n";
+        oss << "--------------------------\n";
     }
+    return oss.str();
+}
+
+const vector<Message>& UniversityMember::getRawInbox() const {
+    return inbox;
 }

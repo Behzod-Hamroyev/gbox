@@ -4,14 +4,9 @@
 #include "UniversityMember.h"
 
 class Administration : public UniversityMember {
-private:
-    int admin_id;
-
 public:
-    Administration(string name, int age, int admin_id);
-
-    int getAdminID() const;
-    void setAdminID(int newID);
+    Administration(const string& name, const string& id);
+    std::string getID() const override;
 };
 
 #endif // ADMINISTRATION_H

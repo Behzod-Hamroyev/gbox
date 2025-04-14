@@ -10,4 +10,6 @@ add_executable(gbox
         Faculty.cpp
         Student.cpp
         Registration.cpp
+        Manager.cpp
+        Database.cpp
 )

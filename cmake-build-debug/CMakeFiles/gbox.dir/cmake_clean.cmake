@@ -1,8 +1,12 @@
 file(REMOVE_RECURSE
   "CMakeFiles/gbox.dir/Administration.cpp.o"
   "CMakeFiles/gbox.dir/Administration.cpp.o.d"
+  "CMakeFiles/gbox.dir/Database.cpp.o"
+  "CMakeFiles/gbox.dir/Database.cpp.o.d"
   "CMakeFiles/gbox.dir/Faculty.cpp.o"
   "CMakeFiles/gbox.dir/Faculty.cpp.o.d"
+  "CMakeFiles/gbox.dir/Manager.cpp.o"
+  "CMakeFiles/gbox.dir/Manager.cpp.o.d"
   "CMakeFiles/gbox.dir/Registration.cpp.o"
   "CMakeFiles/gbox.dir/Registration.cpp.o.d"
   "CMakeFiles/gbox.dir/Student.cpp.o"
