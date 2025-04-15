@@ -5,7 +5,6 @@
 #include <fstream>
 #include <iostream>
 #include <ctime>
-#include <sstream>
 
 using namespace std;
 
@@ -35,7 +34,7 @@ void saveUsers(const vector<unique_ptr<UniversityMember>>& users) {
         out << user->getName() << "\n";
         out << user->getID() << "\n";
 
-        const auto& inbox = user->getInbox();
+        const vector<Message>& inbox = user->getRawInbox();
         out << inbox.size() << "\n";
         for (const Message& msg : inbox) {
             out << msg.sender << "|" << msg.timestamp << "|" << msg.content << "\n";
@@ -90,56 +89,4 @@ void loadUsers(vector<unique_ptr<UniversityMember>>& users) {
     }
 
     in.close();
-}
-
-void appendMessageToFile(const string& recipientID, const Message& message) {
-    ifstream in("users.db");
-    if (!in) {
-        cerr << "users.db not found. Cannot append message." << endl;
-        return;
-    }
-
-    vector<string> lines;
-    string line;
-    while (getline(in, line)) {
-        lines.push_back(line);
-    }
-    in.close();
-
-    ofstream out("users.db");
-    if (!out) {
-        cerr << "Failed to open users.db for writing." << endl;
-        return;
-    }
-
-    for (size_t i = 0; i < lines.size(); ++i) {
-        out << lines[i] << '\n';
-
-        if (lines[i].rfind("#ROLE:", 0) == 0 && i + 2 < lines.size()) {
-            string name = lines[i + 1];
-            string id = lines[i + 2];
-
-            if (id == recipientID) {
-                int msgCount = stoi(lines[i + 3]);
-                msgCount++;
-                lines[i + 3] = to_string(msgCount); // Update message count
-
-                out << name << '\n';
-                out << id << '\n';
-                out << msgCount << '\n';
-
-                i += 3; // move index to just after ID line
-
-                // Copy old messages
-                for (int m = 0; m < msgCount - 1; ++m) {
-                    out << lines[++i] << '\n';
-                }
-
-                // Append new message
-                out << message.sender << "|" << message.timestamp << "|" << message.content << '\n';
-            }
-        }
-    }
-
-    out.close();
 }

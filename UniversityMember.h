@@ -1,8 +1,8 @@
-#ifndef UNIVERSITY_MEMBER_H
-#define UNIVERSITY_MEMBER_H
+#ifndef UNIVERSITYMEMBER_H
+#define UNIVERSITYMEMBER_H
 
-#include <vector>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -25,12 +25,13 @@ public:
     string getName() const;
     void setName(const string& newName);
 
-    void sendMessage(UniversityMember& recipient, const string& content, bool anonymous = false);
-    void receiveMessage(const Message& message);
-    virtual string getInbox() const;
-    const vector<Message>& getRawInbox() const;
-
     virtual string getID() const = 0;
+
+    void sendMessage(UniversityMember& recipient, const string& content, bool anonymous) const;
+    void receiveMessage(const Message& msg);
+
+    string getInbox() const;
+    const vector<Message>& getRawInbox() const;
 };
 
-#endif // UNIVERSITY_MEMBER_H
+#endif // UNIVERSITYMEMBER_H

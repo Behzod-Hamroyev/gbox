@@ -1,30 +1,36 @@
 #include "UniversityMember.h"
-#include <iostream>
-#include <sstream>
 #include <ctime>
+#include <sstream>
+#include <fstream>
+#include <iomanip>
 
-UniversityMember::UniversityMember(const string& name, const string& id) : name(name), id(id) {}
+UniversityMember::UniversityMember(const string& name, const string& id)
+    : name(name), id(id) {}
 
-string UniversityMember::getName() const { return name; }
-void UniversityMember::setName(const string& newName) { name = newName; }
+string UniversityMember::getName() const {
+    return name;
+}
 
-void UniversityMember::sendMessage(UniversityMember& recipient, const string& content, bool anonymous) {
+void UniversityMember::setName(const string& newName) {
+    name = newName;
+}
+
+void UniversityMember::sendMessage(UniversityMember& recipient, const string& content, bool anonymous) const {
+    Message msg;
+    msg.sender = anonymous ? "Anonymous" : name;
+
     time_t now = time(0);
     tm* ltm = localtime(&now);
     char buffer[20];
     strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", ltm);
+    msg.timestamp = string(buffer);
 
-    Message msg = {
-        .sender = anonymous ? "Anonymous" : name,
-        .timestamp = buffer,
-        .content = content
-    };
-
+    msg.content = content;
     recipient.receiveMessage(msg);
 }
 
-void UniversityMember::receiveMessage(const Message& message) {
-    inbox.push_back(message);
+void UniversityMember::receiveMessage(const Message& msg) {
+    inbox.push_back(msg);
 }
 
 string UniversityMember::getInbox() const {

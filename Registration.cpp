@@ -46,38 +46,43 @@ void registerUser(vector<unique_ptr<UniversityMember>>& users) {
     getline(cin, name);
 
     string id;
+    unique_ptr<UniversityMember> newUser;
 
     switch (roleChoice) {
         case 1:
             id = generateUniqueID("ST", users);
-            users.push_back(make_unique<Student>(name, id));
+            newUser = make_unique<Student>(name, id);
             cout << "Student registered with ID: " << id << endl;
             break;
         case 2:
             id = generateUniqueID("FA", users);
-            users.push_back(make_unique<Faculty>(name, id));
+            newUser = make_unique<Faculty>(name, id);
             cout << "Faculty registered with ID: " << id << endl;
             break;
         case 3:
             id = generateUniqueID("AD", users);
-            users.push_back(make_unique<Administration>(name, id));
+            newUser = make_unique<Administration>(name, id);
             cout << "Administration registered with ID: " << id << endl;
             break;
         default:
             cout << "Invalid option. Returning to menu." << endl;
+            return;
     }
-    const auto& user = users.back();
+
+    const string& finalID = newUser->getID();
+    const string& finalName = newUser->getName();
+    string role;
+    if (dynamic_cast<Student*>(newUser.get())) role = "Student";
+    else if (dynamic_cast<Faculty*>(newUser.get())) role = "Faculty";
+    else if (dynamic_cast<Administration*>(newUser.get())) role = "Administration";
+
+    users.push_back(move(newUser));
+
     ofstream out("../users.db", ios::app);
     if (out) {
-        string role;
-        if (dynamic_cast<Student*>(user.get())) role = "Student";
-        else if (dynamic_cast<Faculty*>(user.get())) role = "Faculty";
-        else if (dynamic_cast<Administration*>(user.get())) role = "Administration";
-
         out << "#ROLE: " << role << "\n";
-        out << user->getName() << "\n";
-        out << user->getID() << "\n";
-        out << "0\n";
+        out << finalName << "\n";
+        out << finalID << "\n";
     } else {
         cerr << "Error appending user to users.db" << endl;
     }
