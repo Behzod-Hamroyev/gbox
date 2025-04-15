@@ -5,7 +5,7 @@
 #include <memory>
 #include "UniversityMember.h"
 
-void saveUsers(const std::vector<std::unique_ptr<UniversityMember>>& users);
-void loadUsers(std::vector<std::unique_ptr<UniversityMember>>& users);
+void saveUsers(const vector<unique_ptr<UniversityMember>>& users);
+void loadUsers(vector<unique_ptr<UniversityMember>>& users);
 
 #endif //DATABASE_H

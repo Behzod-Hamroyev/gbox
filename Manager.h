@@ -10,9 +10,9 @@ class Manager {
 public:
     Manager();
     void viewAllUsers(const vector<unique_ptr<UniversityMember>>& users) const;
-    void viewInbox(const vector<unique_ptr<UniversityMember>>& users, const string& id) const;
-    void viewUserInfo(const vector<unique_ptr<UniversityMember>>& users, const string& id) const;
-    void removeUser(vector<unique_ptr<UniversityMember>>& users, const string& id);
+    void viewInbox(const vector<unique_ptr<UniversityMember>>& users, const string& name) const;
+    void viewUserInfo(const vector<unique_ptr<UniversityMember>>& users, const string& name) const;
+    void removeUser(vector<unique_ptr<UniversityMember>>& users, const string& name);
 };
 
 #endif //MANAGER_H
